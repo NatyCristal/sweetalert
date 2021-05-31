@@ -149,34 +149,32 @@ class SweetAlertDialogState extends State<SweetAlertDialog>
 
     if (_options.title != null) {
       listOfChildren.add(
-        Padding(
-          padding: EdgeInsets.all(30),
-          child: new Text(
-            _options.title,
-            style: new TextStyle(
-              fontSize: 25.0,
-              color: new Color(0xff575757),
-            ),
+        new Text(
+          _options.title,
+          textAlign: TextAlign.center,
+          style: new TextStyle(
+            fontSize: 25.0,
+            color: new Color(0xff575757),
           ),
         ),
       );
     }
 
     if (_options.subtitle != null) {
-      listOfChildren.add(new Padding(
-        padding: new EdgeInsets.only(left: 30, top: 10.0, right: 30),
-        child: new Text(
+      listOfChildren.add(
+        new Text(
           _options.subtitle,
+          textAlign: TextAlign.center,
           style: new TextStyle(fontSize: 16.0, color: new Color(0xff797979)),
         ),
-      ));
+      );
     }
 
     //we do not render buttons when style=loading
     if (_options.style != SweetAlertStyle.loading) {
       if (_options.showCancelButton) {
         listOfChildren.add(new Padding(
-          padding: new EdgeInsets.only(left: 30, top: 10.0, right: 30),
+          padding: new EdgeInsets.only(top: 10.0),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -204,7 +202,7 @@ class SweetAlertDialogState extends State<SweetAlertDialog>
         ));
       } else {
         listOfChildren.add(new Padding(
-          padding: new EdgeInsets.only(left: 30, top: 10.0, right: 30),
+          padding: new EdgeInsets.only(top: 10.0),
           child: new RaisedButton(
             onPressed: confirm,
             color: _options.confirmButtonColor ?? SweetAlert.success,
